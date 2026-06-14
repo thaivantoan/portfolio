@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai Van Toan | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+--primary:#1e3a8a;
+--accent:#f97316;
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#1f2937;
+--shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+body.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#e5e7eb;
+--shadow:0 10px 25px rgba(0,0,0,.35);
+}
+    body.dark .tag {
+        background: #334155;
+        color: #f8fafc;
+    }
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
+}
+
+h1,h2,h3{font-family:'Poppins',sans-serif}
+.container{width:min(1200px,90%);margin:auto}
+section{padding:90px 0}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+transition:.3s;
+}
+header.scrolled{
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(10px);
+box-shadow:var(--shadow);
+}
+body.dark header.scrolled{
+background:rgba(15,23,42,.9);
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 5%;
+}
+
+.logo{font-weight:700;font-size:1.3rem;color:var(--primary)}
+.nav-links{
+display:flex;
+gap:20px;
+list-style:none;
+}
+.nav-links a{
+text-decoration:none;
+color:var(--text);
+font-weight:500;
+}
+
+.theme-btn{
+border:none;
+padding:10px;
+border-radius:50%;
+cursor:pointer;
+background:var(--accent);
+color:white;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+background:linear-gradient(135deg,#dbeafe,#ffffff);
+}
+body.dark .hero{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.hero-content{
+display:grid;
+grid-template-columns:1fr 1.2fr;
+gap:50px;
+align-items:center;
+animation:fadeIn 1s ease;
+}
+
+.avatar{
+width:320px;
+height:320px;
+border-radius:50%;
+overflow:hidden;
+margin:auto;
+box-shadow:var(--shadow);
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+
+.hero-text h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+.hero-text p{
+font-size:1.15rem;
+margin-bottom:25px;
+}
+
+.btn-group{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 24px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+    .project-card .btn {
+        margin-top: 15px;
+        display: inline-block;
+    }
+.primary{
+background:var(--primary);
+color:white;
+}
+.secondary{
+background:var(--accent);
+color:white;
+}
+.btn:hover{transform:translateY(-3px)}
+
+.section-title{
+text-align:center;
+font-size:2rem;
+margin-bottom:15px;
+}
+.section-sub{
+text-align:center;
+opacity:.8;
+margin-bottom:40px;
+}
+
+.about-text{
+max-width:800px;
+margin:0 auto 40px;
+text-align:center;
+line-height:1.8;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.stat-card{
+background:var(--card);
+padding:25px;
+border-radius:15px;
+box-shadow:var(--shadow);
+min-width:200px;
+text-align:center;
+}
+
+.counter{
+font-size:2rem;
+font-weight:700;
+color:var(--accent);
+}
+
+.skills-grid,
+.hobby-grid,
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:var(--card);
+padding:25px;
+border-radius:15px;
+box-shadow:var(--shadow);
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card i{
+font-size:2rem;
+color:var(--accent);
+margin-bottom:15px;
+}
+
+    .project-card {
+        overflow: hidden;
+        padding-bottom: 24px;
+    }
+.project-card img{
+width:100%;
+display:block;
+transition:.4s;
+}
+.project-card:hover img{
+transform:scale(1.08);
+}
+
+.tags{
+margin:10px 0;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+    .tag {
+        background: #dbeafe;
+        color: #1e3a8a;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: .85rem;
+        font-weight: 600;
+    }
+
+.contact-wrap{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.contact-info div{
+margin-bottom:20px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,textarea{
+padding:12px;
+border:1px solid #ccc;
+border-radius:10px;
+font-family:inherit;
+}
+
+textarea{height:140px}
+
+.submit-btn{
+background:var(--primary);
+color:white;
+border:none;
+padding:14px;
+border-radius:10px;
+cursor:pointer;
+}
+
+footer{
+padding:30px;
+text-align:center;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:768px){
+.hero-content,
+.contact-wrap{
+grid-template-columns:1fr;
+text-align:center;
+}
+.hero-text h1{font-size:2.2rem}
+.nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+<nav>
+<div class="logo">TVT Portfolio</div>
+
+<ul class="nav-links">
+<li><a href="#about">Về tôi</a></li>
+<li><a href="#skills">Kỹ năng</a></li>
+<li><a href="#projects">Dự án</a></li>
+<li><a href="#hobby">Sở thích</a></li>
+<li><a href="#contact">Liên hệ</a></li>
+</ul>
+
+<button class="theme-btn" id="themeToggle">
+<i class="fas fa-moon"></i>
+</button>
+</nav>
+</header>
+
+<section class="hero">
+<div class="container hero-content">
+
+    <div class="avatar">
+        <img src="avt.jpg" alt="avatar">
+    </div>
+
+<div class="hero-text">
+<h1>Thái Văn Toàn</h1>
+<p><strong>Biến ý tưởng thành sản phẩm số chuyên nghiệp</strong></p>
+<p>Sinh viên năm 2 Đại học Bách Khoa Đà Nẵng - Kỹ thuật Máy tính.</p>
+
+<div class="btn-group">
+<a href="#projects" class="btn primary">Xem dự án</a>
+<a href="#contact" class="btn secondary">Liên hệ ngay</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<h2 class="section-title">Về tôi</h2>
+
+<p class="about-text">
+Tôi là Thái Văn Toàn, sinh viên năm 2 ngành Kỹ thuật Máy tính tại Đại học Bách Khoa Đà Nẵng.
+Tôi yêu thích lập trình hệ thống, hệ thống nhúng, IoT và phát triển các công cụ hỗ trợ tự động hóa.
+Với khoảng 2 năm tự học và thực hành, tôi luôn tìm kiếm cơ hội biến các ý tưởng thành sản phẩm thực tế có giá trị.
+</p>
+
+<div class="stats">
+<div class="stat-card">
+<div class="counter" data-target="2">0</div>
+<p>Năm kinh nghiệm</p>
+</div>
+
+<div class="stat-card">
+<div class="counter" data-target="2">0</div>
+<p>Dự án đã thực hiện</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+<h2 class="section-title">Kỹ năng chuyên môn</h2>
+
+<div class="skills-grid">
+
+<div class="card">
+<i class="fas fa-code"></i>
+<h3>C/C++</h3>
+<p>Phát triển phần mềm hệ thống và ứng dụng.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-microchip"></i>
+<h3>Embedded Systems</h3>
+<p>Lập trình vi điều khiển và thiết bị nhúng.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-wifi"></i>
+<h3>IoT</h3>
+<p>Kết nối thiết bị và thu thập dữ liệu thông minh.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-globe"></i>
+<h3>Web Development</h3>
+<p>Xây dựng website và portfolio cá nhân.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-screwdriver-wrench"></i>
+<h3>Tool Development</h3>
+<p>Thiết kế công cụ hỗ trợ công việc.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-database"></i>
+<h3>Data Processing</h3>
+<p>Xử lý và quản lý dữ liệu hiệu quả.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+<h2 class="section-title">Dự án nổi bật</h2>
+
+<div class="project-grid">
+
+<div class="card project-card">
+    <img src="homeauto.jpg" alt="project">
+<h3>Hệ thống Home Automation</h3>
+<p>Điều khiển và giám sát thiết bị trong nhà thông qua IoT.</p>
+<div class="tags">
+<span class="tag">ESP32</span>
+<span class="tag">IoT</span>
+<span class="tag">C++</span>
+</div>
+<a href="#" class="btn primary">Xem chi tiết</a>
+</div>
+
+<div class="card project-card">
+<img src="portfolio.jpg" alt="project">
+<h3>Thiết kế Web CV & Portfolio</h3>
+<p>Website giới thiệu cá nhân hiện đại và responsive.</p>
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</div>
+<a href="#" class="btn primary">Xem chi tiết</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="hobby">
+<div class="container">
+<h2 class="section-title">Sở thích</h2>
+<p class="section-sub">Không ngừng rèn luyện - Không ngừng phát triển</p>
+
+<div class="hobby-grid">
+
+<div class="card">
+<h3>🏋️ Thể thao / Gym</h3>
+<p>Duy trì thói quen tập luyện để nâng cao sức khỏe, tính kỷ luật và khả năng tập trung trong học tập cũng như công việc.</p>
+</div>
+
+<div class="card">
+<h3>📚 Chủ động học hỏi</h3>
+<p>Thường xuyên tìm hiểu các công nghệ mới, đọc tài liệu kỹ thuật và thực hiện các dự án cá nhân để nâng cao kỹ năng.</p>
+</div>
+
+<div class="card">
+<h3>🚀 Nghiên cứu xu hướng ngành</h3>
+<p>Theo dõi các xu hướng về AI, IoT, Embedded Systems và phát triển phần mềm để cập nhật kiến thức thực tế.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<h2 class="section-title">Liên hệ với tôi</h2>
+
+<div class="contact-wrap">
+
+<div class="contact-info">
+<div><i class="fas fa-envelope"></i> toanvanthai00000@gmail.com</div>
+<div><i class="fas fa-phone"></i> 0xxx xxx xxx</div>
+<div><i class="fas fa-location-dot"></i> Đà Nẵng, Việt Nam</div>
+<div><i class="fab fa-facebook"></i> facebook.com/username</div>
+</div>
+
+<form id="contactForm">
+<input type="text" placeholder="Họ tên" required>
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Số điện thoại">
+<textarea placeholder="Nội dung"></textarea>
+<button class="submit-btn">Gửi tin nhắn</button>
+</form>
+
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Thái Văn Toàn. All Rights Reserved.
+</footer>
+
+<script>
+const header=document.getElementById('header');
+
+window.addEventListener('scroll',()=>{
+if(window.scrollY>50){
+header.classList.add('scrolled');
+}else{
+header.classList.remove('scrolled');
+}
+});
+
+const toggle=document.getElementById('themeToggle');
+
+if(localStorage.getItem('theme')==='dark'){
+document.body.classList.add('dark');
+}
+
+toggle.addEventListener('click',()=>{
+document.body.classList.toggle('dark');
+localStorage.setItem(
+'theme',
+document.body.classList.contains('dark') ? 'dark' : 'light'
+);
+});
+
+const counters=document.querySelectorAll('.counter');
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+const el=entry.target;
+const target=+el.dataset.target;
+let count=0;
+
+const timer=setInterval(()=>{
+count++;
+el.textContent=count;
+if(count>=target) clearInterval(timer);
+},50);
+
+observer.unobserve(el);
+}
+});
+});
+
+counters.forEach(c=>observer.observe(c));
+
+const form=document.getElementById('contactForm');
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+
+const btn=this.querySelector('button');
+
+btn.textContent='Đang gửi...';
+
+setTimeout(()=>{
+btn.textContent='Gửi thành công ✓';
+setTimeout(()=>{
+btn.textContent='Gửi tin nhắn';
+form.reset();
+},2000);
+},1500);
+});
+</script>
+
+</body>
+</html>
